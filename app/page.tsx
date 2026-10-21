@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
@@ -6,14 +5,12 @@ export default function Home() {
   return (
     <main className="min-h-screen relative flex items-center justify-center p-4 overflow-hidden">
 
-      {/* Imagen de fondo con una capa oscura para que el texto resalte */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/fondo.jpg" /* Reemplaza con el nombre de tu foto en la carpeta public */
+      {/* Imagen de fondo estándar */}
+      <div className="absolute inset-0 -z-10 bg-black">
+        <img
+          src="/fondo.jpg"
           alt="Cabañas Rucahue Fondo"
-          fill
-          quality={100}
-          className="object-cover brightness-[0.4]" /* Oscurece la foto un 60% */
+          className="w-full h-full object-cover brightness-[0.4]"
         />
       </div>
 
@@ -21,13 +18,11 @@ export default function Home() {
       <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 sm:p-12 rounded-[2rem] shadow-2xl max-w-lg w-full text-center transform transition-all hover:scale-[1.02] duration-500">
 
         {/* Contenedor del Logo */}
-        <div className="w-36 h-36 sm:w-40 sm:h-40 mx-auto mb-6 relative rounded-full overflow-hidden border-4 border-[#C19A6B] shadow-lg">
-          <Image
+        <div className="w-36 h-36 sm:w-40 sm:h-40 mx-auto mb-6 relative rounded-full overflow-hidden border-4 border-[#C19A6B] shadow-lg flex items-center justify-center bg-white">
+          <img
             src="/logo.png"
             alt="Logo Cabañas Rucahue"
-            fill
-            /* Eliminamos bg-white. object-contain evita que se corte, y scale-110 lo agranda para llenar el círculo */
-            className="object-contain scale-[1.9] drop-shadow-md"
+            className="w-full h-full object-cover scale-[1.5]"
           />
         </div>
 
