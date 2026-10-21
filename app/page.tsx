@@ -1,69 +1,80 @@
 import Image from "next/image";
+import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main className="min-h-screen relative flex items-center justify-center p-4 overflow-hidden">
+
+      {/* Imagen de fondo con una capa oscura para que el texto resalte */}
+      <div className="absolute inset-0 -z-10">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="/fondo.jpg" /* Reemplaza con el nombre de tu foto en la carpeta public */
+          alt="Cabañas Rucahue Fondo"
+          fill
+          quality={100}
+          className="object-cover brightness-[0.4]" /* Oscurece la foto un 60% */
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      </div>
+
+      {/* Tarjeta principal con efecto Glassmorphism (vidrio esmerilado) */}
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 sm:p-12 rounded-[2rem] shadow-2xl max-w-lg w-full text-center transform transition-all hover:scale-[1.02] duration-500">
+
+        {/* Contenedor del Logo */}
+        <div className="w-36 h-36 sm:w-40 sm:h-40 mx-auto mb-6 relative rounded-full overflow-hidden border-4 border-[#C19A6B] shadow-lg">
+          <Image
+            src="/logo.png"
+            alt="Logo Cabañas Rucahue"
+            fill
+            /* Eliminamos bg-white. object-contain evita que se corte, y scale-110 lo agranda para llenar el círculo */
+            className="object-contain scale-[1.9] drop-shadow-md"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">
+          Cabañas Rucahue
+        </h1>
+
+        <p className="text-white/90 text-sm sm:text-base mb-8 leading-relaxed">
+          Estamos preparando una nueva experiencia web. Seguimos recibiendo reservas y consultas con normalidad a través de nuestros canales oficiales.
+        </p>
+
+        {/* Lista de botones de contacto animados */}
+        <div className="flex flex-col gap-4">
+
+          <a href="https://wa.me/56956502571" target="_blank" rel="noopener noreferrer"
+            className="group relative flex items-center justify-center gap-3 w-full bg-[#25D366] text-white py-4 px-6 rounded-full font-semibold text-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(37,211,102,0.3)]">
+            <FaWhatsapp className="text-2xl group-hover:scale-110 transition-transform duration-300" />
+            <span>Contactar por WhatsApp</span>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+
+          <a href="https://www.instagram.com/cabanas.rucahue/?hl=es" target="_blank" rel="noopener noreferrer"
+            className="group flex items-center justify-center gap-3 w-full bg-white/10 hover:bg-white/20 border border-white/30 text-white py-3 px-6 rounded-full font-medium transition-all duration-300 hover:-translate-y-1">
+            <FaInstagram className="text-xl text-[#E1306C] group-hover:scale-110 transition-transform duration-300" />
+            <span>@cabanas.rucahue</span>
           </a>
+
+          <a href="https://www.facebook.com/cabanas.rucahue/?locale=es_LA" target="_blank" rel="noopener noreferrer"
+            className="group flex items-center justify-center gap-3 w-full bg-white/10 hover:bg-white/20 border border-white/30 text-white py-3 px-6 rounded-full font-medium transition-all duration-300 hover:-translate-y-1">
+            <FaFacebook className="text-xl text-[#1877F2] group-hover:scale-110 transition-transform duration-300" />
+            <span>/cabanas.rucahue</span>
+          </a>
+
+          <a href="mailto:cabanas.rucahue.hornopiren@gmail.com"
+            className="group flex items-center justify-center gap-3 w-full bg-white/10 hover:bg-white/20 border border-white/30 text-white py-3 px-6 rounded-full font-medium transition-all duration-300 hover:-translate-y-1">
+            <MdEmail className="text-xl text-[#C19A6B] group-hover:scale-110 transition-transform duration-300" />
+            <span className="truncate">cabanas.rucahue.hornopiren@gmail.com</span>
+          </a>
+
         </div>
-      </main>
-    </div>
+
+        <div className="mt-8 pt-6 border-t border-white/20 text-white/70 text-sm flex items-center justify-center gap-2">
+          <span className="font-bold">Los Colonos Sitio 14, Hornopirén Región de Los Lagos</span>
+        </div>
+        <div className="mt-8 pt-6 border-t border-white/20 text-white/70 text-sm flex items-center justify-center gap-2">
+          Teléfono <a href="tel:+56956502571" className="font-bold">+56 9 56502571</a><br />
+        </div>
+      </div>
+    </main>
   );
 }
