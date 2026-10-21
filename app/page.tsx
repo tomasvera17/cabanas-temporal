@@ -22,7 +22,7 @@ export default function Home() {
           <img
             src="/logo.png"
             alt="Logo Cabañas Rucahue"
-            className="w-full h-full object-cover scale-[1.1]"
+            className="w-full h-full object-cover scale-[1]"
           />
         </div>
 
